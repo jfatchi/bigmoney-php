@@ -1,6 +1,6 @@
 <?php
 
-	namespace BigMoney;
+	namespace BigMoney\Methods;
 
 	class Deposit{
 		private $restClient;
