@@ -1,7 +1,6 @@
 BigMoney
 =================
-
-Master: [![Build Status]
+BigMoney APIs SDK
 
 Introduction
 ------------
