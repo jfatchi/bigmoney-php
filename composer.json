@@ -1,0 +1,21 @@
+{
+	"name": "bigmoney/bigmoney-php",
+	"description": "Utilities to manage BigMoney APIs",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Jordi Fatchi",
+			"email": "jfatchi@hdesking.de",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.4.0"
+	},
+	"autoload": {
+		"psr-0": {
+			"BigMoney\\": "src/"
+		}
+	},
+	"minimum-stability": "stable"
+}
