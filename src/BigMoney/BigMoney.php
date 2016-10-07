@@ -4,6 +4,7 @@
 
 	use BigMoney\Methods\Deposit;
 	use BigMoney\Methods\Withdraw;
+	use BigMoney\Methods\Income;
 	use BigMoney\Connection\RestClient;
 
 	/**

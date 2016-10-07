@@ -54,6 +54,13 @@
 			$result = curl_exec($ch);
 			curl_close($ch);
 
+			if(!$result){
+				return array(
+					'error' => true,
+					'msg' => 'El servicio no está disponible.'
+				);
+			}
+
 			return json_decode($result, true);
 		}
 
