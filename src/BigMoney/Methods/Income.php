@@ -14,7 +14,7 @@
 	 *
 	 * @param string $amount Amount requested
 	 */
-		public function request($dni, $uid){
+		public function request($amount){
 			if(!$this->restClient) throw new Exception;
 
 			return $this->restClient->post('income/request', [
