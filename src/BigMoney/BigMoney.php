@@ -30,7 +30,7 @@
 		}
 
 		/**
-     * Request a new deposit transaction
+     * Deposit methods
      *
      * @see BigMoney::Deposit
      */
@@ -39,12 +39,21 @@
 		}
 
 		/**
-     * Request a new withdraw transaction
+     * Withdraw methods
      *
      * @see BigMoney::Withdraw
      */
 		public function Withdraw(){
 			return new Withdraw($this->restClient);
+		}
+
+		/**
+     * Income methods
+     *
+     * @see BigMoney::Income
+     */
+		public function Income(){
+			return new Income($this->restClient);
 		}
 	}
 ?>
