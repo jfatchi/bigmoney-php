@@ -14,6 +14,7 @@
 		public function __construct($BM, $apiEndPoint, $apiVersion, $ssl=true){
 			if(!$BM || get_class($BM) != 'BigMoney\BigMoney') throw new Exception('BigMoney object is required');
 
+			$this->BM = $BM;
 			$this->ssl = $ssl;
 			$this->endPoint = $apiEndPoint;
 			$this->version = $apiVersion;
@@ -22,7 +23,10 @@
 
 		public function post($uri, $data=array()){
 			return $this->call($uri, [
-				'auth' => ['mid'=>$this->BM->getApiId(), 'mkey'=>$this->BM->getApiKey()],
+				'auth' => [
+					'mid'=>$this->BM->getApiId(),
+					'mkey'=>$this->BM->getApiKey()
+				],
 				'data' => $data
 			]);
 		}
