@@ -22,7 +22,7 @@
 
 		public function post($uri, $data=array()){
 			return $this->call($uri, [
-				'auth' => ['mid'=>$this->BM->getApiId(), 'mkey'=>$this->$this->BM->getApiKey()],
+				'auth' => ['mid'=>$this->BM->getApiId(), 'mkey'=>$this->BM->getApiKey()],
 				'data' => $data
 			]);
 		}
