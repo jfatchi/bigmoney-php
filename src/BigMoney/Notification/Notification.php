@@ -1,15 +1,17 @@
 <?php
 
 	namespace BigMoney\Notification;
-	
+
+	use Exception;
+
 	class Notification{
 		private $data = null;
-		private $apiId = false;
-		private $apiKey = false;
 
-		public function __construct($apiId, $apiKey, $inputJSON = null){
-			$this->apiId = $apiId;
-			$this->apiKey = $apiKey;
+		public function __construct($BM, $inputJSON = null){
+			if(!$BM || get_class($BM) != 'BigMoney\BigMoney') throw new Exception('BigMoney object is required');
+
+			$this->BM = $BM;
+
 			$this->data = json_decode($inputJSON, true);
 		}
 
@@ -29,7 +31,7 @@
 			$response = array(
 				'success' => $success,
 				'data' => $this->data,
-				'signature' => sha1($this->apiId.$this->apiKey)
+				'signature' => sha1($this->BM->getApiId().$this->BM->getApiKey())
 			);
 
 			echo json_encode($response, true);exit();
