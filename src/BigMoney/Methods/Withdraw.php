@@ -2,6 +2,8 @@
 
 	namespace BigMoney\Methods;
 
+	use Exception;
+
 	class Withdraw{
 		private $restClient;
 
@@ -16,7 +18,7 @@
 	 * @param string $uid User Id
 	 */
 		public function request($dni, $uid){
-			if(!$this->restClient) throw new Exception;
+			if(!$this->restClient) throw new Exception('No se ha inicializado la conexión');
 
 			return $this->restClient->post('withdraw/request', [
 				'dni' => $dni,
@@ -33,7 +35,7 @@
 	 * @param string $amount Withdrawal amount
 	 */
 		public function send($tid, $uid, $dni, $amount){
-			if(!$this->restClient) throw new Exception;
+			if(!$this->restClient) throw new Exception('No se ha inicializado la conexión');
 
 			return $this->restClient->post('withdraw/send', [
 				'uid' => $uid,

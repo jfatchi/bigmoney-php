@@ -5,6 +5,7 @@
 	use BigMoney\Methods\Deposit;
 	use BigMoney\Methods\Withdraw;
 	use BigMoney\Methods\Income;
+	use BigMoney\Notification\Notification;
 	use BigMoney\Connection\RestClient;
 
 	/**
@@ -14,8 +15,8 @@
 	*/
 	class BigMoney {
 		protected $restClient;
-		protected $apiId;
-		protected $apiKey;
+		private $apiId;
+		private $apiKey;
 
 		public function __construct($apiId=null, $apiKey=null, $apiEndpoint = "services.bigmoney.es", $apiVersion="v1", $ssl=true){
       $this->apiKey = $apiId;
@@ -55,6 +56,14 @@
      */
 		public function Income(){
 			return new Income($this->restClient);
+		}
+
+		/**
+		*
+		*
+		*/
+		public function Notification($inputJSON=null){
+			return new Notification($this->apiId, $this->apiKey, $inputJSON);
 		}
 	}
 ?>

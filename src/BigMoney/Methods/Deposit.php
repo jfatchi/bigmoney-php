@@ -2,6 +2,8 @@
 
 	namespace BigMoney\Methods;
 
+	use Exception;
+
 	class Deposit{
 		private $restClient;
 
@@ -17,7 +19,7 @@
      * @param string $uid User Id
      */
 		public function request($amount, $tid, $uid){
-			if(!$this->restClient) throw new Exception;
+			if(!$this->restClient) throw new Exception('No se ha inicializado la conexión');
 
 			return $this->restClient->post('deposit/request', [
 				'amount' => $amount,
@@ -33,7 +35,7 @@
      * @param string $bmtid BigMoney transaction Id
      */
 		public function info($tid, $bmtid){
-			if(!$this->restClient) throw new Exception;
+			if(!$this->restClient) throw new Exception('No se ha inicializado la conexión');
 
 			return $this->restClient->post('deposit/info', [
 				'tid' => $tid,
